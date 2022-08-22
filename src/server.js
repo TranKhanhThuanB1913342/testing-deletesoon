@@ -1,11 +1,14 @@
 const express = require('express')
 //import express from "express"
+const configViewEngine = require('./configs/viewEngine');
+//import configViewEngine from "./configs/viewEngine";
+
 const app = express()
 const port = 3000
-const path = require('path');
+configViewEngine(app);
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.html'));
+    res.render('test/index.ejs');
 })
 
 app.get('/about', (req, res) => {
